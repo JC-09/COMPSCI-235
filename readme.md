@@ -8,6 +8,7 @@
 
 A domain model plus unit tests for the COVID-19 app.
 
+<<<<<<< HEAD
 ## Installation
 
 **Installation via requirements.txt**
@@ -56,3 +57,14 @@ Run the *tests/test_domain_model.py* script.
 If using PyCharm, you can run the script by right-clicking file *test_domain_model.py* in the Project view, and selecting `*Run pytest in test_domain_model.py*.
 
  
+=======
+01_hello_flask
+
+02_COVID_domain_model
+
+03_COVID_repository
+
+04_COVID_Web_app
+
+05_hello_jinja
+>>>>>>> upstream/master
