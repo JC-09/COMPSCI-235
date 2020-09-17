@@ -20,8 +20,13 @@ def home():
 
 
 @people_blueprint.route('/list')
-def list_people():
-    pass
+def list_people(): # lab-4-task-6
+    return render_template(
+        'list_people.html',
+       people =repo.repo_instance,
+        find_person_url=url_for('people_bp.find_person'),
+        list_people_url=url_for('people_bp.list_people')
+    )
 
 
 @people_blueprint.route('/find', methods=['GET', 'POST'])
