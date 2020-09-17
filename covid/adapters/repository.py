@@ -11,7 +11,7 @@ class RepositoryException(Exception):
         pass
 
 
-class AbstractRepository(abc.ABC):
+class AbstractRepository(abc.ABC):  # ABC = Abstract Based Class
 
     @abc.abstractmethod
     def add_user(self, user: User):
