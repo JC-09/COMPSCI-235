@@ -3,20 +3,17 @@
 {% block content %}
 
 <main>
-    <table>
-        <tr>
-            <th>Id number</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-        </tr>
-        {% for person in people %}
-            <tr>
-                <td>{{ person.id_number }}</td>
-                <td>{{ person.firstname }}</td>
-                <td>{{ person.lastname }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+
+    {% if person != none %}
+        <p>{{ person.id_number }}</p>
+        <p>{{ person.firstname }}</p>
+        <p>{{ person.lastname }}</p>
+    {% else %}
+        <p>There is no matched person available.</p>
+    {% endif %}
+
+
+
 </main>
 
 {% endblock %}
