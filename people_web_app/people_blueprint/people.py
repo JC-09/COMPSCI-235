@@ -9,6 +9,13 @@ people_blueprint = Blueprint(
     'people_bp', __name__
 )
 
+class SearchForm(FlaskForm): # lab-4-task-8
+    person_id = IntegerField('Person id', [
+        DataRequired(message="Person id is required")
+    ])
+
+    submit = SubmitField('Find')
+
 
 @people_blueprint.route('/')
 def home():
@@ -23,7 +30,7 @@ def home():
 def list_people(): # lab-4-task-6
     return render_template(
         'list_people.html',
-       people =repo.repo_instance,
+        people=repo.repo_instance,
         find_person_url=url_for('people_bp.find_person'),
         list_people_url=url_for('people_bp.list_people')
     )
@@ -31,7 +38,22 @@ def list_people(): # lab-4-task-6
 
 @people_blueprint.route('/find', methods=['GET', 'POST'])
 def find_person():
-    pass
-
-
+    form = SearchForm()
+    if form.validate_on_submit():
+        submitted_id = form.person_id.data
+        print(submitted_id)
+        person = repo.repo_instance.get_person(int(submitted_id))
+        return render_template(
+            'list_person.html',
+            person=person,
+            find_person_url=url_for('people_bp.find_person'),
+            list_people_url=url_for('people_bp.list_people')
+        )
+    return render_template(
+        'find_person.html',
+        form=form,
+        handler_url=url_for('people_bp.find_person'),
+        find_person_url=url_for('people_bp.find_person'),
+        list_people_url=url_for('people_bp.list_people')
+    )
 
