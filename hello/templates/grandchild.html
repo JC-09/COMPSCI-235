@@ -5,8 +5,8 @@
     {% extends "child.html" %}
 
     {% block main %}
-        {{ super() }}
-        <p style="font-style: italic"> This is content is defined in the grandchild template </p>
+        {{ super() }} <!-- Using everything in the child.html's main content block -->
+        <p style="font-style: italic"> This is content is defined in the grandchild template </p> <!-- Append own content. -->
     {% endblock %}
 </body>
 </html>
